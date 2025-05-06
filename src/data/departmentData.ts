@@ -11,9 +11,6 @@ export const departmentList: Department[] = [
   { id: "3", name: "Electrical & Electronic Engineering", shortName: "EEE" },
   { id: "4", name: "Business Administration", shortName: "BBA" },
   { id: "5", name: "Economics", shortName: "ECO" },
-  { id: "6", name: "Chemistry", shortName: "CHEM" },
+  { id: "6", name: "English", shortName: "ENG" },
   { id: "7", name: "Law & Justice", shortName: "LLB" },
-  { id: "8", name: "Architecture", shortName: "ARCH" },
-  { id: "9", name: "Civil Engineering", shortName: "CE" },
-  { id: "10", name: "Mechanical Engineering", shortName: "ME" },
 ];
