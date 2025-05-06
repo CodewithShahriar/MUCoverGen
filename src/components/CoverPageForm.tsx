@@ -191,7 +191,7 @@ export const CoverPageForm = ({ onFormSubmit }: CoverPageFormProps) => {
           <Label htmlFor="studentId">Student ID</Label>
           <Input 
             id="studentId" 
-            placeholder="Your ID number" 
+            placeholder="e.g., 232-115-000" 
             value={formData.studentId} 
             onChange={(e) => handleInputChange('studentId', e.target.value)} 
           />
@@ -203,7 +203,7 @@ export const CoverPageForm = ({ onFormSubmit }: CoverPageFormProps) => {
           <Label htmlFor="batch">Batch</Label>
           <Input 
             id="batch" 
-            placeholder="e.g., 45" 
+            placeholder="e.g., 59" 
             value={formData.batch} 
             onChange={(e) => handleInputChange('batch', e.target.value)} 
           />
