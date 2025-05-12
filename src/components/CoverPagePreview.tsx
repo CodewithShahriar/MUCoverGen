@@ -61,12 +61,15 @@ export const CoverPagePreview = ({ data }: CoverPagePreviewProps) => {
             {data.title && <h1 className="report-title">{data.title}</h1>}
           </div>
           
-          <div className="course-section">
-            <p className="course-info"><span className="font-bold">Course Name:</span></p>
-            <p className="course-info">{data.courseName}</p>
-            <p className="course-info"><span className="font-bold">Course Code:</span></p>
-            <p className="course-info">{data.courseCode}</p>
+          <div className="course-section space-y-1">
+            <p className="course-info">
+              <span className="font-bold">Course Name:</span> {data.courseName}
+            </p>
+            <p className="course-info">
+              <span className="font-bold">Course Code:</span> {data.courseCode}
+            </p>
           </div>
+
           
           <div className="mb-8">
             <p className="section-title">Submitted to:</p>
@@ -74,7 +77,7 @@ export const CoverPagePreview = ({ data }: CoverPagePreviewProps) => {
               <div>
                 <p className="faculty-name">{faculty.name}</p>
                 <p className="faculty-position">{faculty.position}</p>
-                <p>{faculty.department},</p>
+                <p>Department of {faculty.department},</p>
                 <p>Metropolitan University, Sylhet.</p>
               </div>
             )}
