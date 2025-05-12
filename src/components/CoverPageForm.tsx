@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,6 +24,7 @@ export interface CoverPageData {
   batch: string;
   section: string;
   departmentId: string;
+  facultyDepartmentId: string; // Added new field to track faculty department separately
   submissionDate: Date;
 }
 
@@ -41,6 +43,7 @@ const defaultFormData: CoverPageData = {
   batch: "",
   section: "",
   departmentId: "",
+  facultyDepartmentId: "", // Initialize the new field
   submissionDate: new Date(),
 };
 
@@ -66,9 +69,9 @@ export const CoverPageForm = ({ onFormSubmit }: CoverPageFormProps) => {
           setSelectedFaculty(faculty);
         }
 
-        // Filter faculty list based on saved department
-        if (parsedData.departmentId) {
-          const dept = departmentList.find(d => d.id === parsedData.departmentId);
+        // Filter faculty list based on saved faculty department
+        if (parsedData.facultyDepartmentId) {
+          const dept = departmentList.find(d => d.id === parsedData.facultyDepartmentId);
           if (dept) {
             const deptName = dept.name;
             const filtered = facultyList.filter(faculty => faculty.department === deptName);
@@ -90,9 +93,9 @@ export const CoverPageForm = ({ onFormSubmit }: CoverPageFormProps) => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const handleDepartmentChange = (departmentId: string) => {
-    // Update the form data with the new department
-    handleInputChange('departmentId', departmentId);
+  const handleFacultyDepartmentChange = (departmentId: string) => {
+    // Update the form data with the new faculty department
+    handleInputChange('facultyDepartmentId', departmentId);
     
     // Clear any previously selected faculty when department changes
     handleInputChange('facultyId', '');
@@ -181,15 +184,15 @@ export const CoverPageForm = ({ onFormSubmit }: CoverPageFormProps) => {
         </div>
       </div>
 
-      {/* Added department selector first */}
+      {/* Faculty Department selector */}
       <div className="space-y-2">
-        <Label htmlFor="department">Department</Label>
+        <Label htmlFor="facultyDepartment">Faculty Department</Label>
         <Select 
-          value={formData.departmentId} 
-          onValueChange={handleDepartmentChange}
+          value={formData.facultyDepartmentId} 
+          onValueChange={handleFacultyDepartmentChange}
         >
           <SelectTrigger>
-            <SelectValue placeholder="Select department" />
+            <SelectValue placeholder="Select faculty department" />
           </SelectTrigger>
           <SelectContent>
             {departmentList.map(dept => (
@@ -207,10 +210,10 @@ export const CoverPageForm = ({ onFormSubmit }: CoverPageFormProps) => {
         <Select 
           value={formData.facultyId} 
           onValueChange={handleFacultyChange}
-          disabled={!formData.departmentId} // Disable if no department selected
+          disabled={!formData.facultyDepartmentId} // Disable if no department selected
         >
           <SelectTrigger>
-            <SelectValue placeholder={formData.departmentId ? "Select faculty" : "Select department first"} />
+            <SelectValue placeholder={formData.facultyDepartmentId ? "Select faculty" : "Select faculty department first"} />
           </SelectTrigger>
           <SelectContent>
             {filteredFacultyList.length > 0 ? (
@@ -274,13 +277,13 @@ export const CoverPageForm = ({ onFormSubmit }: CoverPageFormProps) => {
           />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="department">Department</Label>
+          <Label htmlFor="studentDepartment">Student Department</Label>
           <Select 
             value={formData.departmentId} 
             onValueChange={(val) => handleInputChange('departmentId', val)}
           >
             <SelectTrigger>
-              <SelectValue placeholder="Select department" />
+              <SelectValue placeholder="Select your department" />
             </SelectTrigger>
             <SelectContent>
               {departmentList.map(dept => (
