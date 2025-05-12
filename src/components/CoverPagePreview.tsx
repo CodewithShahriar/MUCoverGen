@@ -77,8 +77,9 @@ export const CoverPagePreview = ({ data }: CoverPagePreviewProps) => {
               <div>
                 <p className="faculty-name">{faculty.name}</p>
                 <p className="faculty-position">{faculty.position}</p>
-                <p>Department of {faculty.department},</p>
-                <p>Metropolitan University, Sylhet.</p>
+                <p className="department-text">Department of {faculty.department},</p>
+                <p className="university-text">Metropolitan University, Sylhet.</p>
+
               </div>
             )}
           </div>
@@ -89,8 +90,9 @@ export const CoverPagePreview = ({ data }: CoverPagePreviewProps) => {
               <p className="student-name">{data.studentName}</p>
               <p className="mb-1">ID: {data.studentId}</p>
               <p className="mb-1">Batch: {data.batch}, Section: {data.section}</p>
-              <p>Department of {department?.name},</p>
-              <p>Metropolitan University, Sylhet.</p>
+              <p className="department-text">Department of {department?.name},</p>
+              <p className="university-text">Metropolitan University, Sylhet.</p>
+
             </div>
           </div>
           

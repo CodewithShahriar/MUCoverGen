@@ -118,6 +118,11 @@
   font-size: 1.2rem;
   margin-bottom: 0.2rem;
 }
+.university-text,
+.department-text {
+  font-size: 1.1rem;
+  font-weight: 100;
+}
 
 .section-title {
   font-size: 1.3rem;
