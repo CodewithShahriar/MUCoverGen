@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -50,6 +49,7 @@ const STORAGE_KEY = "universityFormData";
 export const CoverPageForm = ({ onFormSubmit }: CoverPageFormProps) => {
   const [formData, setFormData] = useState<CoverPageData>(defaultFormData);
   const [selectedFaculty, setSelectedFaculty] = useState<Faculty | null>(null);
+  const [filteredFacultyList, setFilteredFacultyList] = useState<Faculty[]>(facultyList);
 
   // Load saved data from localStorage on component mount
   useEffect(() => {
@@ -65,6 +65,16 @@ export const CoverPageForm = ({ onFormSubmit }: CoverPageFormProps) => {
           const faculty = facultyList.find(f => f.id === parsedData.facultyId) || null;
           setSelectedFaculty(faculty);
         }
+
+        // Filter faculty list based on saved department
+        if (parsedData.departmentId) {
+          const dept = departmentList.find(d => d.id === parsedData.departmentId);
+          if (dept) {
+            const deptName = dept.name;
+            const filtered = facultyList.filter(faculty => faculty.department === deptName);
+            setFilteredFacultyList(filtered);
+          }
+        }
       } catch (error) {
         console.error("Error parsing saved form data:", error);
       }
@@ -78,6 +88,26 @@ export const CoverPageForm = ({ onFormSubmit }: CoverPageFormProps) => {
 
   const handleInputChange = (field: keyof CoverPageData, value: string | Date) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+  };
+
+  const handleDepartmentChange = (departmentId: string) => {
+    // Update the form data with the new department
+    handleInputChange('departmentId', departmentId);
+    
+    // Clear any previously selected faculty when department changes
+    handleInputChange('facultyId', '');
+    setSelectedFaculty(null);
+    
+    // Find the selected department
+    const department = departmentList.find(d => d.id === departmentId);
+    if (department) {
+      // Filter faculty list based on selected department
+      const deptFaculty = facultyList.filter(faculty => faculty.department === department.name);
+      setFilteredFacultyList(deptFaculty);
+    } else {
+      // If no department selected, show all faculty
+      setFilteredFacultyList(facultyList);
+    }
   };
 
   const handleFacultyChange = (facultyId: string) => {
@@ -151,21 +181,47 @@ export const CoverPageForm = ({ onFormSubmit }: CoverPageFormProps) => {
         </div>
       </div>
 
+      {/* Added department selector first */}
+      <div className="space-y-2">
+        <Label htmlFor="department">Department</Label>
+        <Select 
+          value={formData.departmentId} 
+          onValueChange={handleDepartmentChange}
+        >
+          <SelectTrigger>
+            <SelectValue placeholder="Select department" />
+          </SelectTrigger>
+          <SelectContent>
+            {departmentList.map(dept => (
+              <SelectItem key={dept.id} value={dept.id}>
+                {dept.name} ({dept.shortName})
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
+
+      {/* Faculty selector that's filtered by the selected department */}
       <div className="space-y-2">
         <Label htmlFor="faculty">Submitted To (Faculty)</Label>
         <Select 
           value={formData.facultyId} 
           onValueChange={handleFacultyChange}
+          disabled={!formData.departmentId} // Disable if no department selected
         >
           <SelectTrigger>
-            <SelectValue placeholder="Select faculty" />
+            <SelectValue placeholder={formData.departmentId ? "Select faculty" : "Select department first"} />
           </SelectTrigger>
           <SelectContent>
-            {facultyList.map(faculty => (
-              <SelectItem key={faculty.id} value={faculty.id}>
-                {faculty.name}
-              </SelectItem>
-            ))}
+            {filteredFacultyList.length > 0 ? (
+              filteredFacultyList.map(faculty => (
+                <SelectItem key={faculty.id} value={faculty.id}>
+                  {faculty.name} ({faculty.position})
+                </SelectItem>
+              ))
+            ) : (
+              <SelectItem value="none" disabled>No faculty available for this department</SelectItem>
+            )}
           </SelectContent>
         </Select>
         
@@ -191,7 +247,7 @@ export const CoverPageForm = ({ onFormSubmit }: CoverPageFormProps) => {
           <Label htmlFor="studentId">Student ID</Label>
           <Input 
             id="studentId" 
-            placeholder="e.g., 232-115-000" 
+            placeholder="Your ID number" 
             value={formData.studentId} 
             onChange={(e) => handleInputChange('studentId', e.target.value)} 
           />
@@ -203,7 +259,7 @@ export const CoverPageForm = ({ onFormSubmit }: CoverPageFormProps) => {
           <Label htmlFor="batch">Batch</Label>
           <Input 
             id="batch" 
-            placeholder="e.g., 59" 
+            placeholder="e.g., 45" 
             value={formData.batch} 
             onChange={(e) => handleInputChange('batch', e.target.value)} 
           />
