@@ -78,18 +78,16 @@
 
 /* A4 Preview Styles */
 .cover-page {
-  width: 210mm;
-  height: 297mm;
-  padding: 20mm;
+  width: 794px;  /* ~210mm */
+  height: 1123px; /* ~297mm */
+  padding: 40px;
   background: white;
-  font-family: 'Times New Roman', Times, serif;
-  position: relative;
   margin: 0 auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Times New Roman', Times, serif;
   text-align: center;
-  font-size: 1.2rem;
-  line-height: 1.5;
 }
+
 
 .preview-container {
   width: 100%;

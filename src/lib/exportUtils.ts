@@ -1,20 +1,19 @@
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 
-export const exportAsPDF = async (elementId: string, filename: string = 'cover-page'): Promise<void> => {
-  const element = document.getElementById(elementId);
-  if (!element) {
-    console.error("Element not found");
-    return;
-  }
+const A4_WIDTH_PX = 794;  // A4 @ 96 DPI = ~794x1123px
+const A4_HEIGHT_PX = 1123;
 
-  // Force scale to original size (A4 ratio: 210 x 297 mm ≈ 794 x 1123 px at 96 DPI)
+export const exportAsPDF = async (elementId: string, filename = 'cover-page'): Promise<void> => {
+  const element = document.getElementById(elementId);
+  if (!element) return;
+
   const canvas = await html2canvas(element, {
+    width: A4_WIDTH_PX,
+    height: A4_HEIGHT_PX,
     scale: 2,
     useCORS: true,
-    logging: false,
-    windowWidth: element.scrollWidth,
-    windowHeight: element.scrollHeight
+    backgroundColor: "#ffffff"
   });
 
   const imgData = canvas.toDataURL('image/png');
@@ -25,24 +24,20 @@ export const exportAsPDF = async (elementId: string, filename: string = 'cover-p
     format: 'a4'
   });
 
-  // Add image to fill A4 (210 x 297 mm)
   pdf.addImage(imgData, 'PNG', 0, 0, 210, 297);
   pdf.save(`${filename}.pdf`);
 };
 
-export const exportAsPNG = async (elementId: string, filename: string = 'cover-page'): Promise<void> => {
+export const exportAsPNG = async (elementId: string, filename = 'cover-page'): Promise<void> => {
   const element = document.getElementById(elementId);
-  if (!element) {
-    console.error("Element not found");
-    return;
-  }
+  if (!element) return;
 
   const canvas = await html2canvas(element, {
+    width: A4_WIDTH_PX,
+    height: A4_HEIGHT_PX,
     scale: 2,
     useCORS: true,
-    logging: false,
-    windowWidth: element.scrollWidth,
-    windowHeight: element.scrollHeight
+    backgroundColor: "#ffffff"
   });
 
   const imgData = canvas.toDataURL('image/png');

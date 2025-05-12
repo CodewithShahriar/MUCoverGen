@@ -5,7 +5,6 @@ import { departmentList } from "@/data/departmentData";
 import { facultyList } from "@/data/facultyData";
 import { exportAsPDF, exportAsPNG } from "@/lib/exportUtils";
 import { format } from "date-fns";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 interface CoverPagePreviewProps {
   data: CoverPageData;
@@ -13,26 +12,24 @@ interface CoverPagePreviewProps {
 
 export const CoverPagePreview = ({ data }: CoverPagePreviewProps) => {
   const coverPageRef = useRef<HTMLDivElement>(null);
-  const isMobile = useIsMobile();
-  
+
   const faculty = facultyList.find(f => f.id === data.facultyId);
   const department = departmentList.find(d => d.id === data.departmentId);
 
+  const filename = `${data.studentName.replace(/\s+/g, '_')}_${data.studentId}_cover`;
+
   const handleExportPDF = () => {
-    // Generate filename based on student name and ID
-    const filename = `${data.studentName.replace(/\s+/g, '_')}_${data.studentId}_cover`;
     exportAsPDF("coverPage", filename);
   };
 
   const handleExportPNG = () => {
-    // Generate filename based on student name and ID
-    const filename = `${data.studentName.replace(/\s+/g, '_')}_${data.studentId}_cover`;
     exportAsPNG("coverPage", filename);
   };
 
   return (
     <div className="space-y-4">
-      <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 justify-center mb-6">
+      {/* Download Buttons at the Top */}
+      <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 justify-center">
         <Button 
           onClick={handleExportPDF} 
           className="bg-navy hover:bg-navy-light"
@@ -46,12 +43,13 @@ export const CoverPagePreview = ({ data }: CoverPagePreviewProps) => {
           Download as PNG
         </Button>
       </div>
-      
+
+      {/* Preview Section */}
       <div className="preview-container relative">
         <div 
           ref={coverPageRef} 
           id="coverPage" 
-          className={`cover-page ${isMobile ? 'mobile-cover-page' : ''}`}
+          className="cover-page"
         >
           <div className="flex justify-center mb-10">
             <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/MU_Logo.svg" alt="University Logo" className="h-28 object-contain" />
