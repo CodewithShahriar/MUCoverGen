@@ -157,7 +157,7 @@ export const CoverPageForm = ({ onFormSubmit }: CoverPageFormProps) => {
         <Label htmlFor="title">Title of Work (Optional)</Label>
         <Input 
           id="title" 
-          placeholder="e.g., I-V Characteristics of P-N Junction Diode" 
+          placeholder="e.g., Assignment on Dot & Cross Product" 
           value={formData.title} 
           onChange={(e) => handleInputChange('title', e.target.value)} 
         />
@@ -168,7 +168,7 @@ export const CoverPageForm = ({ onFormSubmit }: CoverPageFormProps) => {
           <Label htmlFor="courseName">Course Name</Label>
           <Input 
             id="courseName" 
-            placeholder="e.g., Basic Electronics Engineering" 
+            placeholder="e.g., Geometry Vector and Analysis" 
             value={formData.courseName} 
             onChange={(e) => handleInputChange('courseName', e.target.value)} 
           />
@@ -177,7 +177,7 @@ export const CoverPageForm = ({ onFormSubmit }: CoverPageFormProps) => {
           <Label htmlFor="courseCode">Course Code</Label>
           <Input 
             id="courseCode" 
-            placeholder="e.g., CSE 132" 
+            placeholder="e.g., MAT123" 
             value={formData.courseCode} 
             onChange={(e) => handleInputChange('courseCode', e.target.value)} 
           />
@@ -250,7 +250,7 @@ export const CoverPageForm = ({ onFormSubmit }: CoverPageFormProps) => {
           <Label htmlFor="studentId">Student ID</Label>
           <Input 
             id="studentId" 
-            placeholder="Your ID number" 
+            placeholder="e.g., 232-115-000" 
             value={formData.studentId} 
             onChange={(e) => handleInputChange('studentId', e.target.value)} 
           />
@@ -262,7 +262,7 @@ export const CoverPageForm = ({ onFormSubmit }: CoverPageFormProps) => {
           <Label htmlFor="batch">Batch</Label>
           <Input 
             id="batch" 
-            placeholder="e.g., 45" 
+            placeholder="e.g., 59" 
             value={formData.batch} 
             onChange={(e) => handleInputChange('batch', e.target.value)} 
           />
