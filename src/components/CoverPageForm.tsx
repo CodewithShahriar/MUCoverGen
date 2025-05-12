@@ -323,9 +323,14 @@ export const CoverPageForm = ({ onFormSubmit }: CoverPageFormProps) => {
         </Popover>
       </div>
 
-      <Button type="submit" className="w-full bg-navy hover:bg-navy-light">
-        Generate Cover Page
-      </Button>
+      <Button
+  type="submit"
+  className="w-full text-white bg-gradient-to-r from-blue-900 to-sky-500 hover:from-blue-700 hover:to-sky-500"
+>
+  Generate Cover Page
+</Button>
+
+
     </form>
   );
 };
