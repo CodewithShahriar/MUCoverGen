@@ -63,6 +63,28 @@ export const facultyList: Faculty[] = [
   { "id": "17", name: "Chowdhury Mujaddid Ahmed", position: "Lecturer", department: "Business Administration" },
   { "id": "18", name: "Ashikur Rahman", position: "Lecturer", department: "Business Administration" },
   { "id": "19", name: "Zarin Tasnim Ahmed Mahi", position: "Lecturer", department: "Business Administration" },
+
+  // eee
+
+  
+  { "id": "2", name: "Navshad Ahmed Chowdhury", position: "Assistant Professor Head, Dept. of EEE", department: "Electrical & Electronic Engineering" },
+  { "id": "3", name: "Md. Rahmot Ullah", position: "Assistant Professor", department: "Electrical & Electronic Engineering" },
+  { "id": "4", name: "Md Anwarul Kawchar", position: "Lecturer", department: "Electrical & Electronic Engineering" },
+  { "id": "5", name: "Arpita Mazumder", position: "Lecturer", department: "Electrical & Electronic Engineering" },
+  { "id": "6", name: "Md Hasanur Rahman Sohag", position: "Lecturer", department: "Electrical & Electronic Engineering" },
+  { "id": "7", name: "Sadman Sakib", position: "Lecturer", department: "Electrical & Electronic Engineering" },
+  { "id": "8", name: "Mahim Ahmed", position: "Lecturer", department: "Electrical & Electronic Engineering" },
+  { "id": "9", name: "Md. Fardin Ahasan Maraz", position: "Lecturer", department: "Electrical & Electronic Engineering" },
+  { "id": "10", name: "Md. Shadman Shakib", position: "Lecturer", department: "Electrical & Electronic Engineering" },
+  { "id": "11", name: "Ahmed Afif Rafsan", position: "Lecturer", department: "Electrical & Electronic Engineering" },
+  { "id": "12", name: "Ahmed Istiakur Rahman", position: "Lecturer", department: "Electrical & Electronic Engineering" },
+  { "id": "13", name: "Md Tawsifur Rahman", position: "Lecturer", department: "Electrical & Electronic Engineering" },
+  { "id": "14", name: "Fahim Ashraf", position: "Lecturer", department: "Electrical & Electronic Engineering" },
+  { "id": "15", name: "Md. Imam Mahdi", position: "Lecturer", department: "Electrical & Electronic Engineering" },
+  { "id": "16", name: "Abdullah Al Numan", position: "Lecturer", department: "Electrical & Electronic Engineering" },
+  { "id": "17", name: "Anika Tabassum", position: "Lecturer", department: "Electrical & Electronic Engineering" },
+  { "id": "18", name: "Dr. Mohammed Jahirul Islam, PEng", position: "Professor (Guest Teacher)", department: "Electrical & Electronic Engineering" },
+  
   
   
   
