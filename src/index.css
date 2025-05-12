@@ -79,25 +79,34 @@
 /* A4 Preview Styles */
 /* A4 Preview Styles */
 .cover-page {
-  width: 794px;
-  height: 1123px;
-  padding: 40px;
-  margin: 0 auto;
+  width: 210mm;
+  height: 297mm;
+  padding: 20mm;
   background: white;
   font-family: 'Times New Roman', Times, serif;
-  text-align: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: relative;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   overflow: hidden;
 }
 
-/* Removed the scale transform — it broke mobile exports */
+.mobile-cover-page {
+  transform-origin: top center;
+  margin: 0 auto;
+}
+
 .preview-container {
   width: 100%;
-  overflow-x: auto;
+  overflow-x: hidden;
   display: flex;
   justify-content: center;
-  padding: 0 1rem;
 }
 
 .faculty-name,
@@ -107,8 +116,7 @@
   margin-bottom: 0.2rem;
 }
 
-.faculty-position,
-.report-type {
+.faculty-position {
   font-size: 1.2rem;
   margin-bottom: 0.2rem;
 }
@@ -121,11 +129,17 @@
 
 .submission-date {
   position: absolute;
-  bottom: 30mm;
+  bottom: 30mm; /* Adjusted to ensure the date is properly placed */
   width: 100%;
   left: 0;
   text-align: center;
   font-size: 1.2rem;
+}
+
+.report-type {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
 .report-title {
@@ -143,15 +157,17 @@
   margin-bottom: 1.5rem;
 }
 
-/* Remove shadow for print */
-@media print {
-  .cover-page {
-    box-shadow: none;
-  }
-}
-
-/* ✅ Mobile responsive font sizing, no resizing the container */
+/* ✅ Make the content more centered and aligned, fixing layout spacing */
 @media (max-width: 768px) {
+  .cover-page {
+    width: 100%;
+    height: auto;
+    padding: 10mm;
+    box-shadow: none;
+    display: block;
+    margin: 0 auto;
+  }
+
   .faculty-name,
   .student-name {
     font-size: 1.3rem;
@@ -179,7 +195,8 @@
 
 @media (max-width: 480px) {
   .cover-page {
-    padding: 10mm 8mm;
+    padding: 8mm;
   }
 }
+
 
