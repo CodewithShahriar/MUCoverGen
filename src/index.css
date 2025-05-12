@@ -79,29 +79,23 @@
 /* A4 Preview Styles */
 /* A4 Preview Styles */
 .cover-page {
+  position: relative;
   width: 210mm;
   height: 297mm;
   padding: 0;
-  background: white;
-  font-family: 'Times New Roman', Times, serif;
   margin: 0 auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  position: relative;
-  text-align: center;
+  background: white;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .cover-inner {
   width: 100%;
-  max-width: 170mm; /* content area within A4 after 20mm padding each side */
-  height: auto;
+  max-width: 170mm;
   padding: 20mm;
-  box-sizing: border-box;
   margin: 0 auto;
   text-align: center;
-  position: relative;
 }
 
 .mobile-cover-page {
