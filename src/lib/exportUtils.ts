@@ -1,4 +1,3 @@
-
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 
@@ -9,22 +8,24 @@ export const exportAsPDF = async (elementId: string, filename: string = 'cover-p
     return;
   }
 
+  // Force scale to original size (A4 ratio: 210 x 297 mm ≈ 794 x 1123 px at 96 DPI)
   const canvas = await html2canvas(element, {
     scale: 2,
     useCORS: true,
     logging: false,
+    windowWidth: element.scrollWidth,
+    windowHeight: element.scrollHeight
   });
 
   const imgData = canvas.toDataURL('image/png');
-  
-  // A4 size in mm: 210mm x 297mm
-  // We convert to inches for jsPDF (1 inch = 25.4 mm)
+
   const pdf = new jsPDF({
     orientation: 'portrait',
     unit: 'mm',
     format: 'a4'
   });
-  
+
+  // Add image to fill A4 (210 x 297 mm)
   pdf.addImage(imgData, 'PNG', 0, 0, 210, 297);
   pdf.save(`${filename}.pdf`);
 };
@@ -40,6 +41,8 @@ export const exportAsPNG = async (elementId: string, filename: string = 'cover-p
     scale: 2,
     useCORS: true,
     logging: false,
+    windowWidth: element.scrollWidth,
+    windowHeight: element.scrollHeight
   });
 
   const imgData = canvas.toDataURL('image/png');
