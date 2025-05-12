@@ -1,4 +1,3 @@
-
 import { useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { CoverPageData } from "@/components/CoverPageForm";
@@ -7,6 +6,7 @@ import { facultyList } from "@/data/facultyData";
 import { exportAsPDF, exportAsPNG } from "@/lib/exportUtils";
 import { format } from "date-fns";
 import { useIsMobile } from "@/hooks/use-mobile";
+
 interface CoverPagePreviewProps {
   data: CoverPageData;
 }
@@ -14,7 +14,7 @@ interface CoverPagePreviewProps {
 export const CoverPagePreview = ({ data }: CoverPagePreviewProps) => {
   const coverPageRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
-
+  
   const faculty = facultyList.find(f => f.id === data.facultyId);
   const department = departmentList.find(d => d.id === data.departmentId);
 
@@ -32,6 +32,21 @@ export const CoverPagePreview = ({ data }: CoverPagePreviewProps) => {
 
   return (
     <div className="space-y-4">
+      <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 justify-center mb-6">
+        <Button 
+          onClick={handleExportPDF} 
+          className="bg-navy hover:bg-navy-light"
+        >
+          Download as PDF
+        </Button>
+        <Button 
+          onClick={handleExportPNG} 
+          className="bg-navy hover:bg-navy-light"
+        >
+          Download as PNG
+        </Button>
+      </div>
+      
       <div className="preview-container relative">
         <div 
           ref={coverPageRef} 
@@ -82,23 +97,6 @@ export const CoverPagePreview = ({ data }: CoverPagePreviewProps) => {
           </div>
         </div>
       </div>
-      
-      <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 justify-center mt-6">
-        <Button 
-          onClick={handleExportPDF} 
-          className="bg-navy hover:bg-navy-light"
-        >
-          Download as PDF
-        </Button>
-        <Button 
-          onClick={handleExportPNG} 
-          className="bg-navy hover:bg-navy-light"
-        >
-          Download as PNG
-        </Button>
-      </div>
-      
-      
     </div>
   );
 };
