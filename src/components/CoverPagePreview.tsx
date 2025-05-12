@@ -32,17 +32,18 @@ export const CoverPagePreview = ({ data }: CoverPagePreviewProps) => {
       <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2 justify-center">
         <Button 
           onClick={handleExportPDF} 
-          className="bg-navy hover:bg-navy-light"
+          className="bg-gradient-to-r from-blue-900 to-sky-600 text-white hover:from-blue-700 hover:to-sky-400"
         >
           Download as PDF
         </Button>
         <Button 
           onClick={handleExportPNG} 
-          className="bg-navy hover:bg-navy-light"
+          className="bg-gradient-to-r from-blue-900 to-sky-600 text-white hover:from-blue-700 hover:to-sky-400"
         >
           Download as PNG
         </Button>
       </div>
+
 
       {/* Preview Section */}
       <div className="preview-container relative">
