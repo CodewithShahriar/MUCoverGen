@@ -46,7 +46,7 @@ export const CoverPagePreview = ({ data }: CoverPagePreviewProps) => {
 
 
       {/* Preview Section */}
-      <div className="preview-container relative">
+      <div className="preview-container relative border border-black">
         <div 
           ref={coverPageRef} 
           id="coverPage" 
