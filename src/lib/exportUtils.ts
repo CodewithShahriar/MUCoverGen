@@ -1,8 +1,9 @@
 import html2canvas from 'html2canvas';
 import { jsPDF } from 'jspdf';
 
-const A4_WIDTH_PX = 794;  // A4 @ 96 DPI = ~794x1123px
+const A4_WIDTH_PX = 794;
 const A4_HEIGHT_PX = 1123;
+const SCALE_FACTOR = 3; // for high DPI exports
 
 export const exportAsPDF = async (elementId: string, filename = 'cover-page'): Promise<void> => {
   const element = document.getElementById(elementId);
@@ -11,13 +12,16 @@ export const exportAsPDF = async (elementId: string, filename = 'cover-page'): P
   const canvas = await html2canvas(element, {
     width: A4_WIDTH_PX,
     height: A4_HEIGHT_PX,
-    scale: 2,
+    scale: SCALE_FACTOR,
     useCORS: true,
-    backgroundColor: "#ffffff"
+    backgroundColor: '#ffffff',
+    windowWidth: A4_WIDTH_PX,
+    windowHeight: A4_HEIGHT_PX,
+    scrollX: 0,
+    scrollY: -window.scrollY,
   });
 
   const imgData = canvas.toDataURL('image/png');
-
   const pdf = new jsPDF({
     orientation: 'portrait',
     unit: 'mm',
@@ -35,9 +39,13 @@ export const exportAsPNG = async (elementId: string, filename = 'cover-page'): P
   const canvas = await html2canvas(element, {
     width: A4_WIDTH_PX,
     height: A4_HEIGHT_PX,
-    scale: 2,
+    scale: SCALE_FACTOR,
     useCORS: true,
-    backgroundColor: "#ffffff"
+    backgroundColor: '#ffffff',
+    windowWidth: A4_WIDTH_PX,
+    windowHeight: A4_HEIGHT_PX,
+    scrollX: 0,
+    scrollY: -window.scrollY,
   });
 
   const imgData = canvas.toDataURL('image/png');

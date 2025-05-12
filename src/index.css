@@ -77,23 +77,27 @@
 }
 
 /* A4 Preview Styles */
+/* A4 Preview Styles */
 .cover-page {
-  width: 794px;  /* ~210mm */
-  height: 1123px; /* ~297mm */
+  width: 794px;
+  height: 1123px;
   padding: 40px;
-  background: white;
   margin: 0 auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: white;
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
-
+/* Removed the scale transform — it broke mobile exports */
 .preview-container {
   width: 100%;
-  overflow-x: hidden;
+  overflow-x: auto;
   display: flex;
   justify-content: center;
+  padding: 0 1rem;
 }
 
 .faculty-name,
@@ -139,22 +143,15 @@
   margin-bottom: 1.5rem;
 }
 
+/* Remove shadow for print */
 @media print {
   .cover-page {
     box-shadow: none;
   }
 }
 
-/* ✅ Responsive layout (no transform scaling) */
+/* ✅ Mobile responsive font sizing, no resizing the container */
 @media (max-width: 768px) {
-  .cover-page {
-    width: 100%;
-    height: auto;
-    min-height: 100vh;
-    padding: 15mm 10mm;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
-  }
-
   .faculty-name,
   .student-name {
     font-size: 1.3rem;
@@ -185,3 +182,4 @@
     padding: 10mm 8mm;
   }
 }
+
