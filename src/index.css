@@ -91,6 +91,18 @@
   line-height: 1.5;
 }
 
+.mobile-cover-page {
+  transform-origin: top center;
+  margin: 0 auto;
+}
+
+.preview-container {
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+}
+
 .faculty-name {
   font-size: 1.5rem;
   font-weight: 600;
@@ -150,9 +162,52 @@
   }
 }
 
+/* Responsive styles for mobile devices */
 @media (max-width: 768px) {
   .cover-page {
-    transform: scale(0.7);
-    transform-origin: top center;
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    padding: 15mm 10mm;
+    transform: scale(0.85);
+  }
+  
+  .mobile-cover-page {
+    transform: scale(0.65);
+  }
+  
+  .faculty-name,
+  .student-name {
+    font-size: 1.3rem;
+  }
+  
+  .faculty-position,
+  .report-type,
+  .course-info {
+    font-size: 1.1rem;
+  }
+  
+  .report-title {
+    font-size: 1.5rem;
+  }
+  
+  .submission-date {
+    font-size: 1.1rem;
+    bottom: 20mm;
+  }
+  
+  .section-title {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cover-page {
+    transform: scale(0.75);
+    padding: 10mm 8mm;
+  }
+  
+  .mobile-cover-page {
+    transform: scale(0.55);
   }
 }
