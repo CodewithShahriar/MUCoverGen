@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -77,6 +76,7 @@
   }
 }
 
+/* A4 Preview Styles */
 .cover-page {
   width: 210mm;
   height: 297mm;
@@ -91,11 +91,6 @@
   line-height: 1.5;
 }
 
-.mobile-cover-page {
-  transform-origin: top center;
-  margin: 0 auto;
-}
-
 .preview-container {
   width: 100%;
   overflow-x: hidden;
@@ -103,20 +98,16 @@
   justify-content: center;
 }
 
-.faculty-name {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.2rem;
-}
-
-.faculty-position {
-  font-size: 1.2rem;
-  margin-bottom: 0.2rem;
-}
-
+.faculty-name,
 .student-name {
   font-size: 1.5rem;
   font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.faculty-position,
+.report-type {
+  font-size: 1.2rem;
   margin-bottom: 0.2rem;
 }
 
@@ -133,12 +124,6 @@
   left: 0;
   text-align: center;
   font-size: 1.2rem;
-}
-
-.report-type {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
 }
 
 .report-title {
@@ -162,40 +147,36 @@
   }
 }
 
-/* Responsive styles for mobile devices */
+/* ✅ Responsive layout (no transform scaling) */
 @media (max-width: 768px) {
   .cover-page {
     width: 100%;
     height: auto;
     min-height: 100vh;
     padding: 15mm 10mm;
-    transform: scale(0.85);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
   }
-  
-  .mobile-cover-page {
-    transform: scale(0.65);
-  }
-  
+
   .faculty-name,
   .student-name {
     font-size: 1.3rem;
   }
-  
+
   .faculty-position,
   .report-type,
   .course-info {
     font-size: 1.1rem;
   }
-  
+
   .report-title {
     font-size: 1.5rem;
   }
-  
+
   .submission-date {
     font-size: 1.1rem;
     bottom: 20mm;
   }
-  
+
   .section-title {
     font-size: 1.2rem;
   }
@@ -203,11 +184,6 @@
 
 @media (max-width: 480px) {
   .cover-page {
-    transform: scale(0.75);
     padding: 10mm 8mm;
-  }
-  
-  .mobile-cover-page {
-    transform: scale(0.55);
   }
 }
