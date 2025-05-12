@@ -17,9 +17,21 @@ const Index = () => {
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="container mx-auto px-4">
         <header className="text-center mb-6 md:mb-10">
-          <h1 className="text-3xl md:text-4xl font-bold text-navy mb-2">University Cover Page Generator</h1>
-          <p className="text-gray-600">Create professional academic cover pages for your assignments and reports</p>
-        </header>
+  <div className="flex items-center justify-center gap-3">
+    <h1 className="text-3xl md:text-4xl font-bold text-navy">The Cover Cat</h1>
+    <img
+      src="https://www.shutterstock.com/image-vector/vector-cat-face-minimalist-adorable-600nw-2426797721.jpg"
+      alt="Cat Logo"
+      className="w-10 h-10 object-cover rounded-full"
+    />
+  </div>
+  <p className="text-gray-600 mt-2">
+    Create cover pages for your assignments and reports
+  </p>
+</header>
+
+
+
 
         <div className="max-w-4xl mx-auto">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
@@ -41,7 +53,7 @@ const Index = () => {
         </div>
         
         <footer className="mt-12 text-center text-sm text-gray-500">
-          <p>MUCoverGen © 2025 – Built by Abid Shahriar</p>
+          <p>TheCoverCat © 2025 – Built by Abid Shahriar CSE59</p>
         </footer>
       </div>
     </div>
