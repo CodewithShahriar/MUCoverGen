@@ -41,7 +41,30 @@ export const facultyList: Faculty[] = [
   { id: "34", name: "Raisa Fairooz", position: "Lecturer", department: "Computer Science & Engineering" },
   { id: "35", name: "Khulud Binte Harun", position: "Lecturer", department: "Computer Science & Engineering" },
   { id: "36", name: "Farhana Akter", position: "Teaching Assistant", department: "Computer Science & Engineering" },
-  { id: "37", name: " Md. Saidur Rahaman", position: "Associate Professor", department: "Business Administration" },
+  
+  // bba
+
+  
+  { "id": "2", name: "Professor Dr. Mohammad Jamal Uddin", position: "Professor and Dean", department: "Business Administration" },
+  { "id": "3", name: "Dr. Tofayel Ahmed", position: "Professor and Head", department: "Business Administration" },
+  { "id": "4", name: "Md. Emran Uddin", position: "Associate Professor", department: "Business Administration" },
+  { "id": "5", name: "Dr. Md. Masud Rana", position: "Professor", department: "Business Administration" },
+  { "id": "6", name: "Debashish Roy", position: "Associate Professor", department: "Business Administration" },
+  { "id": "7", name: "Mohammad Kamrul Ahsan", position: "Associate Professor", department: "Business Administration" },
+  { "id": "8", name: "Md. Ziaur Rahman", position: "Associate Professor", department: "Business Administration" },
+  { "id": "9", name: "Md. Alaul Haque", position: "Associate Professor", department: "Business Administration" },
+  { "id": "10", name: "Md. Saidur Rahaman", position: "Associate Professor", department: "Business Administration" },
+  { "id": "11", name: "Nishath Anjum", position: "Assistant Professor", department: "Business Administration" },
+  { "id": "12", name: "Md. Afsarul Islam", position: "Assistant Professor", department: "Business Administration" },
+  { "id": "13", name: "Jace Saha", position: "Assistant Professor", department: "Business Administration" },
+  { "id": "14", name: "Dr. Urmee Ghose", position: "Assistant Professor", department: "Business Administration" },
+  { "id": "15", name: "Md Rezaul Haque", position: "Assistant Professor", department: "Business Administration" },
+  { "id": "16", name: "Must. Ayesha Shahrin", position: "Lecturer", department: "Business Administration" },
+  { "id": "17", name: "Chowdhury Mujaddid Ahmed", position: "Lecturer", department: "Business Administration" },
+  { "id": "18", name: "Ashikur Rahman", position: "Lecturer", department: "Business Administration" },
+  { "id": "19", name: "Zarin Tasnim Ahmed Mahi", position: "Lecturer", department: "Business Administration" },
+  
+  
   
 ];
 
