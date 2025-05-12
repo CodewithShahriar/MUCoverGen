@@ -8,7 +8,7 @@ export interface Faculty {
 
 export const facultyList: Faculty[] = [
   { id: "2", name: "Professor Dr. Md. Nazrul Haque Chowdhury", position: "Dean, School of Science & Technology", department: "Computer Science & Engineering" },
-  { id: "4", name: "Md. Mahfuzul Hasan", position: "Associate Professor", department: "Computer Science & Engineering" },
+  { id: "4", name: "Md. Mahfuzul Hasan", position: "Associate Professor & Head", department: "Computer Science & Engineering" },
   { id: "5", name: "Safwan Uddin Ahmed", position: "Assistant Professor", department: "Computer Science & Engineering" },
   { id: "6", name: "Md. Mustafiz Shahriar Rabe", position: "Assistant Professor", department: "Computer Science & Engineering" },
   { id: "7", name: "Archi Arani Basak", position: "Lecturer", department: "Computer Science & Engineering" },
@@ -40,6 +40,8 @@ export const facultyList: Faculty[] = [
   { id: "33", name: "Abdul Wadud Shakib", position: "Lecturer", department: "Computer Science & Engineering" },
   { id: "34", name: "Raisa Fairooz", position: "Lecturer", department: "Computer Science & Engineering" },
   { id: "35", name: "Khulud Binte Harun", position: "Lecturer", department: "Computer Science & Engineering" },
-  { id: "36", name: "Farhana Akter", position: "Teaching Assistant", department: "Computer Science & Engineering" }
+  { id: "36", name: "Farhana Akter", position: "Teaching Assistant", department: "Computer Science & Engineering" },
+  { id: "37", name: " Md. Saidur Rahaman", position: "Associate Professor", department: "Business Administration" },
+  
 ];
 
