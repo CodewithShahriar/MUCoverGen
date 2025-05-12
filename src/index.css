@@ -81,20 +81,27 @@
 .cover-page {
   width: 210mm;
   height: 297mm;
-  padding: 20mm;
+  padding: 0;
   background: white;
   font-family: 'Times New Roman', Times, serif;
-  position: relative;
   margin: 0 auto;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
   text-align: center;
-  font-size: 1.2rem;
-  line-height: 1.5;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  overflow: hidden;
+}
+
+.cover-inner {
+  width: 100%;
+  max-width: 170mm; /* content area within A4 after 20mm padding each side */
+  height: auto;
+  padding: 20mm;
+  box-sizing: border-box;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
 }
 
 .mobile-cover-page {

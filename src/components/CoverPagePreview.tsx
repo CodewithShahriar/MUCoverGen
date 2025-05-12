@@ -51,7 +51,8 @@ export const CoverPagePreview = ({ data }: CoverPagePreviewProps) => {
           id="coverPage" 
           className="cover-page"
         >
-          <div className="flex justify-center mb-10">
+          <div className='cover-inner'>
+            <div className="flex justify-center mb-10">
             <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/MU_Logo.svg" alt="University Logo" className="h-28 object-contain" />
           </div>
           
@@ -92,6 +93,8 @@ export const CoverPagePreview = ({ data }: CoverPagePreviewProps) => {
           
           <div className="submission-date">
             <p><span className="font-bold">Date of submission:</span> {format(data.submissionDate, "dd-MM-yyyy")}</p>
+          </div>
+
           </div>
         </div>
       </div>
