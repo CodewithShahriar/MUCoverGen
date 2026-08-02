@@ -1,10 +1,10 @@
-import logoAsset from "@/assets/mu-logo.webp.asset.json";
+import logoUrl from "@/assets/MU_Logo.svg.webp?url";
 import { formatDate, type CoverData, type TemplateId } from "@/lib/cover-data";
 
 function Logo({ className }: { className?: string }) {
   return (
     <img
-      src={logoAsset.url}
+      src={logoUrl}
       alt="Metropolitan University logo"
       className={className}
       crossOrigin="anonymous"
