@@ -11,8 +11,15 @@ export function SheetScaler({ children }: { children: ReactNode }) {
     const el = ref.current;
     if (!el) return;
     const ro = new ResizeObserver((entries) => {
-      const w = entries[0]?.contentRect.width ?? 0;
-      if (w > 0) setScale(Math.min(1, w / A4_W));
+      const rect = entries[0]?.contentRect;
+      const w = rect?.width ?? 0;
+      const h = rect?.height ?? 0;
+      if (w > 0 && h > 0) {
+        const s = Math.min(1, w / A4_W, h / A4_H);
+        setScale(s);
+      } else if (w > 0) {
+        setScale(Math.min(1, w / A4_W));
+      }
     });
     ro.observe(el);
     return () => ro.disconnect();
@@ -21,11 +28,11 @@ export function SheetScaler({ children }: { children: ReactNode }) {
   return (
     <div
       ref={ref}
-      className="sheet-scaler w-full max-w-full overflow-hidden"
+      className="sheet-scaler w-full max-w-full overflow-hidden flex items-center justify-center"
       style={{ height: A4_H * scale }}
     >
       <div
-        className="sheet-scaler-inner origin-top-left"
+        className="sheet-scaler-inner origin-center"
         style={{ transform: `scale(${scale})`, width: A4_W, height: A4_H }}
       >
         {children}

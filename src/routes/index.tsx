@@ -70,8 +70,8 @@ function Index() {
         </div>
       </header>
 
-      <main className="mx-auto grid max-w-[1500px] grid-cols-1 gap-6 px-4 py-6 sm:px-6 lg:grid-cols-[minmax(0,380px)_minmax(0,1fr)] lg:items-start">
-        <div className="no-print order-2 lg:order-1 lg:sticky lg:top-[76px] lg:max-h-[calc(100vh-100px)] lg:overflow-y-auto lg:pr-1">
+      <main className="mx-auto grid max-w-[1500px] grid-cols-1 gap-6 px-4 py-6 sm:px-6 lg:grid-cols-[minmax(0,520px)_minmax(0,1fr)] lg:items-start">
+          <div className="no-print order-2 lg:order-1 lg:sticky lg:top-[76px] lg:max-h-[calc(100vh-100px)] lg:overflow-y-auto lg:pr-4">
           <CoverForm
             data={data}
             template={template}
@@ -80,10 +80,7 @@ function Index() {
           />
         </div>
 
-        <div className="preview-pane order-1 lg:order-2 rounded-2xl border border-border bg-card/50 p-3 shadow-sm sm:p-6">
-          <p className="no-print mb-3 text-center text-xs uppercase tracking-[0.24em] text-muted-foreground">
-            Live A4 Preview
-          </p>
+        <div className="preview-pane order-1 lg:order-2 rounded-2xl border border-border bg-card/50 p-4 shadow-sm sm:p-6 flex items-center justify-center">
           <SheetScaler>
             <CoverSheet data={data} template={template} />
           </SheetScaler>
