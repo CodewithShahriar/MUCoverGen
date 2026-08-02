@@ -5,9 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build",
+    "build": "vite build --outDir dist/client",
     "build:dev": "vite build --mode development",
     "build:vercel": "vite build --outDir dist/client",
+    "postbuild": "node ./scripts/generate-index.js",
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write ."
