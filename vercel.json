@@ -1,28 +1,13 @@
 {
   "version": 2,
   "builds": [
-    {
-      "src": ".output/server/index.mjs",
-      "use": "@vercel/node"
-    },
-    {
-      "src": ".output/public/**",
-      "use": "@vercel/static"
-    }
+    { "src": "dist/client/server/server.js", "use": "@vercel/node" },
+    { "src": "dist/client/client/**", "use": "@vercel/static" }
   ],
   "routes": [
-    {
-      "src": "/_vercel/insights/(.*)",
-      "dest": "/_vercel/insights/$1"
-    },
-    {
-      "src": "/assets/(.*)",
-      "dest": ".output/public/assets/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": ".output/server/index.mjs",
-      "check": true
-    }
+    { "src": "/assets/(.*)", "dest": "dist/client/client/assets/$1" },
+    { "src": "\/favicon.png", "dest": "dist/client/client/favicon.png" },
+    { "src": "\/robots.txt", "dest": "dist/client/client/robots.txt" },
+    { "src": "(.*)", "dest": "dist/client/server/server.js" }
   ]
 }
