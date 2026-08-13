@@ -35,6 +35,7 @@ async function main() {
 </head>
 <body>
   <div id="root"></div>
+  <script>window.$_TSR = true;</script>
   ${jsPath ? `<script type="module" src="${jsPath}"></script>` : ''}
 </body>
 </html>`;
