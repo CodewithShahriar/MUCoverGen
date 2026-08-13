@@ -10,6 +10,7 @@
     "build:vercel": "vite build --outDir dist/client",
     "postbuild": "node ./scripts/generate-index.js",
     "preview": "vite preview",
+    "start": "serve -s dist/client/client -l $PORT",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
@@ -63,7 +64,8 @@
     "tailwindcss": "^4.2.1",
     "tw-animate-css": "^1.3.4",
     "vaul": "^1.1.2",
-    "zod": "^3.24.2"
+    "zod": "^3.24.2",
+    "serve": "^14.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.32.0",
